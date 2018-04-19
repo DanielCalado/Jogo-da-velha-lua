@@ -170,14 +170,16 @@ i = 1
 					colunaLocal = io.read("*number")
 
 					if(type(linhaLocal) == "number" and type(colunaLocal) == "number")then
-						if(tabuleiro[linhaLocal][colunaLocal] == 1)then
+
+						if(linhaLocal >=1 and linhaLocal <=3 and colunaLocal >= 1 and colunaLocal <= 3 and
+							tabuleiro[linhaLocal][colunaLocal] == 1)then
 							tabuleiro[linhaLocal][colunaLocal] = "X"
 							tabuleiro:visualizar()
 							i = i + 1
 						tabuleiro:verificarGanhouX()
 						else
 							print("..........................")
-							print("Jogada invalida ou espaço ja ocupado, jogue novamente!!!")
+							print("**Digite um numero entre 1 e 3** \n**Escolha uma casa vazia**")
 						end
 					else
 						print("..........................")
@@ -195,8 +197,11 @@ i = 1
 				print("..........................")
 				print("digite a coluna:")
 					colunaLocal = io.read('*number')
-						if(type(linhaLocal) == "number" and type(colunaLocal) == "number")then
-						if(tabuleiro[linhaLocal][colunaLocal] == 1)then
+					if(type(linhaLocal) == "number" and type(colunaLocal) == "number" and
+					linhaLocal >=1 and linhaLocal <=3 and colunaLocal >= 1 and colunaLocal <= 3)then
+					if(linhaLocal >=1 and linhaLocal <=3 and colunaLocal >= 1 and colunaLocal <= 3
+						and tabuleiro[linhaLocal][colunaLocal] == 1)then
+
 							tabuleiro[linhaLocal][colunaLocal] = "O"
 							tabuleiro:visualizar()
 							i = i + 1
@@ -217,6 +222,7 @@ i = 1
 
 	if(i == 10)then
 		tabuleiro:enpatou()
+		i = i + 1
 	end
 end
 
